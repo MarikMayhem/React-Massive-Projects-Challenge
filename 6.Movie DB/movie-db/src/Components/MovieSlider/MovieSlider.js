@@ -23,6 +23,7 @@ const MovieSlider = ({ movieList }) => {
             <button onClick={nextMoviesHandler}>NEXT 4</button>
             {firstFourMovies.map(movie => {
                 return <Movie
+                    key={movie.id}
                     posterPath={movie.poster_path}
                     name={movie.original_title}
                     rating={movie.vote_average}
