@@ -1,3 +1,9 @@
+@import "../../Assets/Styles/mixins.scss";
+
 .movie-slider {
     display: flex;
+    flex-direction: column;
+    .movies {
+        @include layout-grid(4, 30px);
+    }
 }

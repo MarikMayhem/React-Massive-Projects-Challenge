@@ -1,8 +1,9 @@
 import React from 'react';
 import SwitchTab from '../../Components/Switchtab/Switchtab';
 import Sort from '../SwitchMode/SwitchMode';
-import MovieSlider from '../../Components/MovieSlider/MovieSlider'
-import { connect } from 'react-redux'
+import MovieSlider from '../../Components/MovieSlider/MovieSlider';
+import { connect } from 'react-redux';
+import './MovieHub.scss';
 
 const MovieHub = (props) => {
     return (
