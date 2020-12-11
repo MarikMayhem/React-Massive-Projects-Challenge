@@ -1,0 +1,53 @@
+@import "../../Assets/Styles/mixins.scss";
+
+.feature-details {
+    width: 95vw;
+    max-width: 1170px;
+    margin: auto;
+    @include for-phone-only {
+        width: 85vw;
+    }
+    .title {
+        font-size: 1.5rem;
+        letter-spacing: 5px;
+    }
+
+    .picture-gallery {
+        @include layout-grid(3, 50px, 2rem, 6);
+        margin: 50px auto;
+        .gallery-image {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    .features-data {
+        @include layout-grid(2, 85px);
+        text-align: left;
+        line-height: 25px;
+
+        .features-info {
+            ul {
+                list-style-type: none;
+                padding: 0;
+                letter-spacing: 6px;
+                line-height: 44px;
+            }
+        }
+    }
+    .feautres-extras {
+        text-align: left;
+        ul {
+            @include layout-grid(3, 35px, 20px);
+            padding: 0;
+            list-style-type: none;
+            li {
+                text-indent: -5px;
+                &:before {
+                    content: "-";
+                    padding-right: 5px;
+                }
+            }
+        }
+    }
+}

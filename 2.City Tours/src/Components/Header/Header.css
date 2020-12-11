@@ -1,0 +1,23 @@
+header {
+    display: flex;
+    background-color: black;
+    justify-content: space-around;
+    padding: 20px 0;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    width: 70%;
+    font-size: 25px;
+}
+ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.active {
+    color: #45b64e;
+}

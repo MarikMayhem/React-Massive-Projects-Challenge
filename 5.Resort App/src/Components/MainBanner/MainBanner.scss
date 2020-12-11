@@ -1,0 +1,34 @@
+@import "../../Assets/Styles/colors.scss";
+@import "../../Assets/Styles/mixins.scss";
+
+.hero-banner {
+    // background: url("../../Assets/images/defaultBcg.jpeg") no-repeat center center;
+    background-size: cover;
+    min-height: calc(100vh - 66px);
+    display: flex;
+
+    .hero-backdrop {
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        width: 55%;
+        height: fit-content;
+        margin: auto;
+        padding: 30px;
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-transform: capitalize;
+            @include for-phone-only {
+                font-size: 2rem;
+            }
+        }
+        .underline {
+            width: 150px;
+        }
+        .hero-description {
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            margin: 35px;
+        }
+    }
+}

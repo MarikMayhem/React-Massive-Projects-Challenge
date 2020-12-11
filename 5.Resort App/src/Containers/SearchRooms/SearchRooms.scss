@@ -1,0 +1,61 @@
+@import "../../Assets/Styles/mixins.scss";
+
+.rooms-section {
+    h1 {
+        font-size: 2em;
+    }
+    hr {
+        margin: 20px auto 40px;
+    }
+    .search-menu {
+        max-width: 1170px;
+        width: 90vw;
+        margin: auto;
+        form {
+            @include layout-grid(5, 20px);
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                &:last-child {
+                    div {
+                        padding: 5px 0;
+                    }
+                }
+                .range,
+                select {
+                    width: 90%;
+                    font-size: 1em;
+                }
+                label {
+                    padding-bottom: 10px;
+                    letter-spacing: 5px;
+                    font-size: 0.9em;
+                }
+
+                .sizes {
+                    display: inline;
+                    .room-size {
+                        width: 70px;
+                        border-radius: 3px;
+                        border: 1px solid black;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .search-rooms {
+        @include layout-grid(4, 30px, 20px, 7);
+        width: 80vw;
+        max-width: 1170px;
+        min-height: 12em;
+        margin: 100px auto;
+        .room {
+            width: 100%;
+        }
+    }
+    .error {
+        padding: 100px 0;
+    }
+}

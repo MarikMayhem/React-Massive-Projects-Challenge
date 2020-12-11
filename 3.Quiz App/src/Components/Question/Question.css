@@ -1,0 +1,12 @@
+.question {
+    width: 80%;
+    border: 1px solid lightgrey;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 3px;
+}
+
+.question-type {
+    display: flex;
+    justify-content: space-between;
+}

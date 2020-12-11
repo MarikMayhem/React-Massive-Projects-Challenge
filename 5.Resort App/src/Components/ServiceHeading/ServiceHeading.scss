@@ -1,0 +1,27 @@
+@import "../../Assets/Styles/colors.scss";
+@import "../../Assets/Styles/fonts.scss";
+@import "../../Assets/Styles/mixins.scss";
+
+.service-heading {
+    background-color: $lightgray;
+    padding: 45px 30px;
+    .services {
+        @include layout-grid(4, 40px);
+        max-width: 1170px;
+        width: 85vw;
+        margin: 60px auto;
+
+        .service {
+            width: 90%;
+            margin: auto;
+            color: $very-dark-gray;
+            h3 {
+                font-size: 1.1rem;
+                letter-spacing: 2px;
+            }
+            .service-description {
+                line-height: 1.3em;
+            }
+        }
+    }
+}

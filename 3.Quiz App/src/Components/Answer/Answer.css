@@ -1,0 +1,16 @@
+.answer,
+.answer:disabled {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 3px;
+    outline: none;
+    margin: 5px;
+}
+.answer {
+    cursor: pointer;
+}
+.answer:disabled {
+    cursor: auto;
+}

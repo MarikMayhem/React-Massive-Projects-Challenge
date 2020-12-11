@@ -1,0 +1,11 @@
+@import "../../Assets/Styles/colors.scss";
+
+.search-section {
+    .search {
+        border-radius: 5px;
+        outline: none;
+        // &:focus {
+        //     box-shadow: 0 0 0 2pt $pelorous;
+        // }
+    }
+}

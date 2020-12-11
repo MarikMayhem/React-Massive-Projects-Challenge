@@ -1,0 +1,17 @@
+.todo {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.todo p {
+    margin: 0;
+}
+
+.btn-delete {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background: none;
+    font-size: 20px;
+}

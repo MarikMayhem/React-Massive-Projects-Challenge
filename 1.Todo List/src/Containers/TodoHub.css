@@ -1,0 +1,11 @@
+.todo-hub h1 {
+    font-weight: 400;
+    font-size: 80px;
+}
+
+.todos {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

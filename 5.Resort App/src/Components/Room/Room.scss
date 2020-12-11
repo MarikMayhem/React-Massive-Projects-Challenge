@@ -1,0 +1,81 @@
+@import "../../Assets/Styles/colors.scss";
+
+.room {
+    // max-width: 330px;
+    margin: auto;
+    position: relative;
+    background-color: $lightgray;
+    box-shadow: 3px 3px 3px $gray;
+    transition: 0.5s;
+    &:hover {
+        box-shadow: 6px 6px 6px $gray;
+    }
+    .room-image-section {
+        position: relative;
+        .room-image {
+            height: 100%;
+            width: 100%;
+        }
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .price-container {
+            background-color: black;
+            color: white;
+            width: fit-content;
+            padding: 7px;
+            border-bottom-right-radius: 20px;
+            position: absolute;
+            top: 0;
+            transition: visibility 0.4s, opacity 0.4s linear;
+            h6,
+            p {
+                margin: 0;
+            }
+            h6 {
+                font-size: 0.8em;
+                font-weight: 500;
+                letter-spacing: 4px;
+            }
+            p {
+                font-size: 0.5rem;
+                padding-top: 3px;
+            }
+        }
+        .reveal-link {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 50%;
+        }
+        &:hover {
+            .price-container {
+                visibility: hidden;
+                opacity: 0;
+            }
+            .reveal-link {
+                visibility: visible;
+                opacity: 1;
+            }
+            .image-overlay {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+    .room-title-section {
+        letter-spacing: 4px;
+        text-transform: capitalize;
+        font-size: 0.6rem;
+    }
+}

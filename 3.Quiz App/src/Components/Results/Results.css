@@ -1,0 +1,14 @@
+.new-game-info {
+    font-size: 50px;
+}
+
+.new-game-btn {
+    background-color: #0ea13c;
+    color: White;
+    outline: none;
+    padding: 20px 30px;
+    font-size: 26px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

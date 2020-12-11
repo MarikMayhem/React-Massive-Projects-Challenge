@@ -1,0 +1,20 @@
+@import "../../Assets/Styles/colors.scss";
+
+.switch-tab {
+    height: 100px;
+    .switch-button {
+        background: none;
+        border: none;
+        color: $white;
+        font-size: 1rem;
+        padding: 20px 20px 5px;
+        cursor: pointer;
+        outline: none;
+        &:hover {
+            border-bottom: 3px solid;
+        }
+    }
+    .active {
+        font-size: 1.5rem;
+    }
+}
