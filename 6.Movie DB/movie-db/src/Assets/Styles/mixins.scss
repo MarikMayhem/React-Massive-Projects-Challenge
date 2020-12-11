@@ -1,0 +1,20 @@
+@mixin for-phone-only {
+    @media (max-width: 450px) {
+        @content;
+    }
+}
+@mixin for-tablet-only {
+    @media (max-width: 800px) {
+        @content;
+    }
+}
+
+@mixin layout-grid($columns, $column-gap, $row-gap: 20px, $mobile-divider: 4) {
+    display: grid;
+    grid-column-gap: $column-gap;
+    grid-row-gap: $row-gap;
+    grid-template-columns: repeat(auto-fill, minmax(((1170px - $column-gap) / ($columns + 1)), 1fr));
+    @include for-phone-only {
+        grid-template-columns: repeat(auto-fill, minmax(((1170px - ($column-gap / 2)) / $mobile-divider), 1fr));
+    }
+}
