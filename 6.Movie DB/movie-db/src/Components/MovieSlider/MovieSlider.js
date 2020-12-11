@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './MovieSlider.scss'
+import { FaArrowRight } from 'react-icons/fa'
 import Movie from './Movie/Movie'
 
 const MovieSlider = ({ movieList }) => {
@@ -20,7 +21,7 @@ const MovieSlider = ({ movieList }) => {
 
     return (
         <section className="movie-slider">
-            <button className="next-button" onClick={nextMoviesHandler}>NEXT 4</button>
+            {movieList.length > 0 && <FaArrowRight className="next-button" onClick={nextMoviesHandler} />}
             <div className="movies">
                 {firstFourMovies.map(movie => {
                     return <Movie
@@ -33,7 +34,7 @@ const MovieSlider = ({ movieList }) => {
                 })}
             </div>
 
-        </section>
+        </section >
     );
 }
 
