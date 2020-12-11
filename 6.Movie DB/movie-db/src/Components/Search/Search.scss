@@ -2,10 +2,14 @@
 
 .search-section {
     .search {
+        height: 30px;
+        width: 31%;
+        font-size: 2rem;
+        padding: 5px;
+        border: none;
         border-radius: 5px;
-        outline: none;
-        // &:focus {
-        //     box-shadow: 0 0 0 2pt $pelorous;
-        // }
+        &:focus {
+            box-shadow: 0 0 0 2pt $pelorous;
+        }
     }
 }

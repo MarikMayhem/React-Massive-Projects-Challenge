@@ -17,8 +17,8 @@ const Search = (props) => {
 
     return (
         <section className="search-section">
-            <h2>Search by entering name:</h2>
-            <input className="search" type="text" onChange={(e) => setSearchMovie(e.target.value)} />
+            <h2>Search by entering movie name:</h2>
+            <input className="search" type="text" placeholder="movie-name" onChange={(e) => setSearchMovie(e.target.value)} />
         </section>
     );
 }
