@@ -17,4 +17,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Sort);
+export default connect(mapStateToProps)(React.memo(Sort));

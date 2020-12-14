@@ -36,4 +36,4 @@ const mapDispatchToProps = dispatch => {
     }
 
 }
-export default connect(null, mapDispatchToProps)(Category);
+export default connect(null, mapDispatchToProps)(React.memo(Category));

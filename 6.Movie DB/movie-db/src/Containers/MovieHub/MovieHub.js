@@ -1,6 +1,6 @@
 import React from 'react';
 import SwitchTab from '../../Components/Switchtab/Switchtab';
-import Sort from '../SwitchMode/SwitchMode';
+import SwitchMode from '../SwitchMode/SwitchMode';
 import MovieSlider from '../../Components/MovieSlider/MovieSlider';
 import { connect } from 'react-redux';
 import './MovieHub.scss';
@@ -10,11 +10,11 @@ const MovieHub = (props) => {
         <React.Fragment>
             <header>
                 <SwitchTab />
-                <Sort />
+                <SwitchMode />
             </header>
             <main>
-                {props.search ? <MovieSlider movieList={props.category} />
-                    : <MovieSlider movieList={props.searchInput} />}
+                <MovieSlider visible={props.search} movieList={props.category} />
+                <MovieSlider visible={!props.search} movieList={props.searchInputValues} />
             </main>
         </React.Fragment>
     );
@@ -22,12 +22,13 @@ const MovieHub = (props) => {
 
 
 const mapStateToProps = state => {
+    console.log('statene', state)
     return {
         search: state.search.search,
         category: state.category.moviesListByCategory,
-        searchInput: state.searchInput.movieSearchList
+        searchInputValues: state.searchInputValues.movieSearchList
     }
 }
 
 
-export default connect(mapStateToProps)(MovieHub);
+export default connect(mapStateToProps)(React.memo(MovieHub));
