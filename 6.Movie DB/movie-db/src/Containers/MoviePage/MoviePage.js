@@ -21,6 +21,26 @@ const MoviePage = (props) => {
                     return <Genre id={genre.id} name={genre.name} />
                 })}
             </div>
+            <h3 className="info-heading">Overview</h3>
+            <p className="overview">{movieData.overview}</p>
+            <div className="general-data">
+                <div className="data-info">
+                    <h3 className="info-heading">Release date</h3>
+                    <p className="info-description">{movieData.release_date}</p>
+                </div>
+                <div className="data-info">
+                    <h3 className="info-heading">Run time</h3>
+                    <p className="info-description">{movieData.runtime}</p>
+                </div>
+                <div className="data-info">
+                    <h3 className="info-heading">Budget</h3>
+                    <p className="info-description">{movieData.budget}</p>
+                </div>
+                <div className="data-info">
+                    <h3 className="info-heading">Homepage</h3>
+                    <a className="info-description" href={movieData.homepage}>{movieData.homepage}</a>
+                </div>
+            </div>
         </main>
     );
 }
