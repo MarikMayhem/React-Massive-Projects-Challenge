@@ -1,5 +1,12 @@
 @import "./Assets/Styles/colors.scss";
 
+main,
+header {
+  width: 95vw;
+  max-width: 1170px;
+  margin: auto;
+}
+
 .App {
   background-color: $cyan-blue;
   color: $white;

@@ -14,14 +14,14 @@ const MoviePage = (props) => {
     }, [movieId]);
 
     return (
-        <section className="movie-page">
+        <main>
             <h3 className="info-heading">GENRE</h3>
             <div className="genres">
                 {movieData.genres.map(genre => {
                     return <Genre id={genre.id} name={genre.name} />
                 })}
             </div>
-        </section>
+        </main>
     );
 }
 
