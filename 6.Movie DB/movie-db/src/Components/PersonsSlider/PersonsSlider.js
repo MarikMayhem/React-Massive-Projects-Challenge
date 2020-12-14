@@ -3,7 +3,7 @@ import { FaArrowRight } from 'react-icons/fa'
 import Person from './Person/Person';
 import './PersonsSlider.scss';
 
-const PersonsSlider = ({ personsList }) => {
+const PersonsSlider = ({ personsList = [], infoType }) => {
 
     const [personsSlider, setPersonsSlider] = useState([]);
     const [firstFourPersons, setFirstFourPersons] = useState([]);
@@ -28,7 +28,7 @@ const PersonsSlider = ({ personsList }) => {
                         key={person.id}
                         personPortrait={person.profile_path}
                         name={person.name}
-                        knownFor={person.known_for_department}
+                        {...(infoType === 'role-name' ? { roleName: person.character } : { knownFor: person.known_for_department })}
                     />
                 })}
             </div>

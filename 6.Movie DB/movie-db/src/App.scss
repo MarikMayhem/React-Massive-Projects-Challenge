@@ -1,5 +1,12 @@
 @import "./Assets/Styles/colors.scss";
 
+main,
+header {
+  width: 95vw;
+  max-width: 1170px;
+  margin: auto;
+}
+
 .App {
   background-color: $cyan-blue;
   color: $white;
@@ -18,6 +25,12 @@
   text-transform: uppercase;
   text-align: left;
   font-size: 1.2rem;
+}
+.big-info-heading {
+  color: $grayish-blue;
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 2rem;
 }
 
 .next-button {

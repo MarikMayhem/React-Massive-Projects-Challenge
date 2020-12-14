@@ -5,7 +5,6 @@ import queryString from 'query-string';
 import './RoomFeatures.scss'
 
 const RoomFeatures = (props) => {
-    console.log(props)
     const id = queryString.parse(props.location.search).id;
     let room = data.filter(room => room.sys.id === id)
     room = { ...room[0].fields, id: id }
