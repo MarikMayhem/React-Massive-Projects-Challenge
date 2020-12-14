@@ -1,0 +1,23 @@
+@import "../../Assets/Styles/colors.scss";
+.about-me {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .normal-text {
+        color: $grayish-blue;
+    }
+    .about-me-left {
+        max-width: 1170 * 0.7px;
+        .social-media {
+            .social-media-icon {
+                padding: 0 5px;
+                font-size: 1rem;
+                color: $buttercup;
+            }
+        }
+    }
+    .about-me-right {
+        max-width: 1170 * 0.3px;
+    }
+}

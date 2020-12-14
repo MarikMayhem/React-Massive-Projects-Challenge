@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import Genre from '../../Components/Category/Genre/Genre';
 import PersonsSlider from '../../Components/PersonsSlider/PersonsSlider';
 import MovieSlider from '../../Components/MovieSlider/MovieSlider';
+import About from '../../Components/About/About';
 
 const MoviePage = (props) => {
     const movieId = queryString.parse(props.location.search).id;
@@ -55,6 +56,7 @@ const MoviePage = (props) => {
             <PersonsSlider personsList={movieCredits.cast} infoType="role-name" />
             <h3 className="info-heading">Similar Movies</h3>
             <MovieSlider visible={true} movieList={similarMovies} />
+            <About />
         </main>
     );
 }
