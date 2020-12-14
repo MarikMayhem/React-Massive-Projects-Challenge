@@ -3,14 +3,20 @@ import axios from '../../axios-custom';
 import './MoviePage.scss';
 import queryString from 'query-string';
 import Genre from '../../Components/Category/Genre/Genre';
+import PersonsSlider from '../../Components/PersonsSlider/PersonsSlider';
 
 const MoviePage = (props) => {
     const movieId = queryString.parse(props.location.search).id;
     const [movieData, setMovieData] = useState({ genres: [] })
+    const [movieCredits, setMovieCredits] = useState({})
 
     useEffect(() => {
         axios.get(`movie/${movieId}?&language=en-US`)
             .then(res => setMovieData(res.data))
+
+        axios.get(`movie/${movieId}/credits?&language=en-US`)
+            .then(res => setMovieCredits(res.data))
+
     }, [movieId]);
 
     return (
@@ -41,6 +47,8 @@ const MoviePage = (props) => {
                     <a className="info-description" href={movieData.homepage}>{movieData.homepage}</a>
                 </div>
             </div>
+            <h3 className="info-heading">Casts</h3>
+            <PersonsSlider personsList={movieCredits.cast} infoType="role-name" />
         </main>
     );
 }
