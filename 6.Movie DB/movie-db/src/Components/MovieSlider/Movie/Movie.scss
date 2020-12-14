@@ -1,6 +1,8 @@
 @import "../../../Assets/Styles/colors.scss";
 .movie {
     text-align: left;
+    color: $white;
+    text-decoration: none;
     .title {
         font-weight: bold;
     }

@@ -4,11 +4,13 @@ import './MoviePage.scss';
 import queryString from 'query-string';
 import Genre from '../../Components/Category/Genre/Genre';
 import PersonsSlider from '../../Components/PersonsSlider/PersonsSlider';
+import MovieSlider from '../../Components/MovieSlider/MovieSlider';
 
 const MoviePage = (props) => {
     const movieId = queryString.parse(props.location.search).id;
     const [movieData, setMovieData] = useState({ genres: [] })
     const [movieCredits, setMovieCredits] = useState({})
+    const [similarMovies, setSimilarMovies] = useState([])
 
     useEffect(() => {
         axios.get(`movie/${movieId}?&language=en-US`)
@@ -16,6 +18,8 @@ const MoviePage = (props) => {
 
         axios.get(`movie/${movieId}/credits?&language=en-US`)
             .then(res => setMovieCredits(res.data))
+        axios.get(`movie/${movieId}/similar?&language=en-US&page=1`)
+            .then(res => setSimilarMovies(res.data.results))
 
     }, [movieId]);
 
@@ -24,7 +28,7 @@ const MoviePage = (props) => {
             <h3 className="info-heading">GENRE</h3>
             <div className="genres">
                 {movieData.genres.map(genre => {
-                    return <Genre id={genre.id} name={genre.name} />
+                    return <Genre key={genre.id} id={genre.id} name={genre.name} />
                 })}
             </div>
             <h3 className="info-heading">Overview</h3>
@@ -49,6 +53,8 @@ const MoviePage = (props) => {
             </div>
             <h3 className="info-heading">Casts</h3>
             <PersonsSlider personsList={movieCredits.cast} infoType="role-name" />
+            <h3 className="info-heading">Similar Movies</h3>
+            <MovieSlider visible={true} movieList={similarMovies} />
         </main>
     );
 }
