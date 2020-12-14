@@ -9,7 +9,6 @@ const MovieSlider = ({ visible, movieList }) => {
     const [firstFourMovies, setFirstFourMovies] = useState([])
 
     useEffect(() => {
-        console.log('activate')
         setSliderMovies(movieList)
         setFirstFourMovies(movieList.splice(0, 4));
     }, [movieList])
@@ -34,8 +33,7 @@ const MovieSlider = ({ visible, movieList }) => {
                     />
                 })}
             </div>
-
-        </section >
+        </section>
     );
 }
 

@@ -1,0 +1,17 @@
+@import "../../../Assets/Styles/colors.scss";
+
+.person {
+    text-align: center;
+    .name {
+        font-weight: bold;
+    }
+    .portrait {
+        width: 80%;
+        height: auto;
+        border-radius: 50%;
+    }
+    .known-for {
+        color: $grayish-blue;
+        font-weight: 100;
+    }
+}
