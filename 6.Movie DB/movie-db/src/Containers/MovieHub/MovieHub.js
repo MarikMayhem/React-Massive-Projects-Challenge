@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SwitchTab from '../../Components/Switchtab/Switchtab';
 import SwitchMode from '../SwitchMode/SwitchMode';
 import MovieSlider from '../../Components/MovieSlider/MovieSlider';
 import { connect } from 'react-redux';
+import axios from '../../axios-custom';
 import './MovieHub.scss';
 
 const MovieHub = (props) => {
+    const [topRatedMovies, setTopRatedMovies] = useState([])
+    const [trendingActors, setTrendingActors] = useState([])
+
+    useEffect(() => {
+        //Get Top Rated 
+        axios.get('movie/top_rated?&language=en-US&page=1')
+            .then(res => setTopRatedMovies(res.data.results));
+        axios.get('trending/person/week')
+            .then(res => setTrendingActors(res.data.results));
+    }, []);
+
     return (
         <React.Fragment>
             <header>
@@ -13,8 +25,13 @@ const MovieHub = (props) => {
                 <SwitchMode />
             </header>
             <main>
+                {/*Movie by category*/}
                 <MovieSlider visible={props.search} movieList={props.category} />
+                {/*Movie by search*/}
                 <MovieSlider visible={!props.search} movieList={props.searchInputValues} />
+                {/*Movie by top-rated-movies*/}
+                <h3 className="info-heading">Top rated Movies</h3>
+                <MovieSlider visible={true} movieList={topRatedMovies} />
             </main>
         </React.Fragment>
     );
@@ -22,7 +39,6 @@ const MovieHub = (props) => {
 
 
 const mapStateToProps = state => {
-    console.log('statene', state)
     return {
         search: state.search.search,
         category: state.category.moviesListByCategory,
