@@ -6,7 +6,6 @@ import PersonsSlider from '../../Components/PersonsSlider/PersonsSlider';
 import { connect } from 'react-redux';
 import axios from '../../axios-custom';
 import './MovieHub.scss';
-import Person from '../../Components/PersonsSlider/Person/Person';
 
 const MovieHub = (props) => {
     const [topRatedMovies, setTopRatedMovies] = useState([])

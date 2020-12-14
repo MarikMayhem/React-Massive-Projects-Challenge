@@ -4,6 +4,7 @@ import './index.css';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import { BrowserRouter as Router } from 'react-router-dom';
 import searchModeReducer from './Store/Reducers/SearchModeReducer';
 import chooseCategoryReducer from './Store/Reducers/chooseCategoryReducer';
 import searchInputValuesReducer from './Store/Reducers/searchInputValuesReducer';
@@ -20,7 +21,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const Store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
-const app = <Provider store={Store}><App /></Provider>
+const app = <Provider store={Store}><Router><App /></Router></Provider>
 
 ReactDOM.render(
   <React.StrictMode>
