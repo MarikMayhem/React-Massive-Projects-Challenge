@@ -4,8 +4,13 @@ import { storeMovieSearchResult } from '../../Store/Actions/movieActionCreator';
 import { connect } from 'react-redux'
 
 const Search = (props) => {
+    const [searchMovie, setSearchMovie] = useState('');
+    const [movieTitle, setMovieTitle] = useState(props.searchInputValue);
 
-    const [searchMovie, setSearchMovie] = useState('')
+    const setMovieHandler = (movieTitle) => {
+        setSearchMovie(movieTitle)
+        setMovieTitle(movieTitle)
+    }
 
     useEffect(() => {
         const delayDispatch = setTimeout(() => {
@@ -17,10 +22,15 @@ const Search = (props) => {
 
     return (
         <section className="search-section">
-            <h2>Search by entering name:</h2>
-            <input className="search" type="text" onChange={(e) => setSearchMovie(e.target.value)} />
+            <h2>Search by entering movie name:</h2>
+            <input className="search" type="text" placeholder="movie-name" value={movieTitle} onChange={(e) => setMovieHandler(e.target.value)} />
         </section>
     );
+}
+const mapStateToProps = state => {
+    return {
+        searchInputValue: state.searchInputValues.searchInputValue
+    }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -29,4 +39,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Search));

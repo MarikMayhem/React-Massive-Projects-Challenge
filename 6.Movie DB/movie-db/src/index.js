@@ -6,15 +6,16 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import searchModeReducer from './Store/Reducers/SearchModeReducer';
 import chooseCategoryReducer from './Store/Reducers/chooseCategoryReducer';
-import searchInputReducer from './Store/Reducers/movieSearchReducer';
+import searchInputValuesReducer from './Store/Reducers/searchInputValuesReducer';
 import App from './App';
 
 
 const rootReducer = combineReducers({
   search: searchModeReducer,
   category: chooseCategoryReducer,
-  searchInput: searchInputReducer
+  searchInputValues: searchInputValuesReducer
 })
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const Store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))

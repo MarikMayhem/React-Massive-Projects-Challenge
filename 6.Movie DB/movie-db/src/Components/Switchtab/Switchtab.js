@@ -33,4 +33,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SwitchTab);
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(SwitchTab));
