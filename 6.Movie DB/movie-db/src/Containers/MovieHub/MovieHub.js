@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import SwitchTab from '../../Components/Switchtab/Switchtab';
 import SwitchMode from '../SwitchMode/SwitchMode';
 import MovieSlider from '../../Components/MovieSlider/MovieSlider';
+import PersonsSlider from '../../Components/PersonsSlider/PersonsSlider';
 import { connect } from 'react-redux';
 import axios from '../../axios-custom';
 import './MovieHub.scss';
+import Person from '../../Components/PersonsSlider/Person/Person';
 
 const MovieHub = (props) => {
     const [topRatedMovies, setTopRatedMovies] = useState([])
@@ -29,6 +31,9 @@ const MovieHub = (props) => {
                 <MovieSlider visible={props.search} movieList={props.category} />
                 {/*Movie by search*/}
                 <MovieSlider visible={!props.search} movieList={props.searchInputValues} />
+                {/*Trending Persons*/}
+                <h3 className="info-heading">Trending Persons this week</h3>
+                <PersonsSlider personsList={trendingActors} />
                 {/*Movie by top-rated-movies*/}
                 <h3 className="info-heading">Top rated Movies</h3>
                 <MovieSlider visible={true} movieList={topRatedMovies} />

@@ -1,0 +1,9 @@
+@import "../../Assets/Styles/mixins.scss";
+
+.persons-slider {
+    display: flex;
+    flex-direction: column;
+    .persons {
+        @include layout-grid(4, 30px);
+    }
+}
