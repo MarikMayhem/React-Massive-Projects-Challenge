@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './MovieSlider.scss'
 import { FaArrowRight } from 'react-icons/fa'
 import Movie from './Movie/Movie'
@@ -26,19 +25,13 @@ const MovieSlider = ({ visible, movieList }) => {
             <div className="movies">
                 {firstFourMovies.map(movie => {
                     return (
-                        <Link
+                        <Movie
                             key={movie.id}
-                            to={{
-                                pathname: `/movie`,
-                                search: `?id=${movie.id}`
-                            }}>
-                            <Movie
-                                posterPath={movie.poster_path}
-                                name={movie.original_title}
-                                rating={movie.vote_average}
-                            />
-                        </Link>
-
+                            posterPath={movie.poster_path}
+                            name={movie.original_title}
+                            rating={movie.vote_average}
+                            id={movie.id}
+                        />
                     )
                 })}
             </div>
