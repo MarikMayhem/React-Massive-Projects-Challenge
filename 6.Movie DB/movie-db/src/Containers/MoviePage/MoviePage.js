@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import Genre from '../../Components/Category/Genre/Genre';
 import PersonsSlider from '../../Components/PersonsSlider/PersonsSlider';
 import MovieSlider from '../../Components/MovieSlider/MovieSlider';
+import MoviePresentation from '../../Components/MoviePresentation/MoviePresentation';
 import About from '../../Components/About/About';
 
 const MoviePage = (props) => {
@@ -26,6 +27,7 @@ const MoviePage = (props) => {
 
     return (
         <main>
+            <MoviePresentation id={movieId} backdrop={movieData.backdrop_path} title={movieData.original_title} />
             <h3 className="info-heading">GENRE</h3>
             <div className="genres">
                 {movieData.genres.map(genre => {
