@@ -27,7 +27,7 @@ const MoviePage = (props) => {
 
     return (
         <main>
-            <MoviePresentation id={movieId} />
+            <MoviePresentation id={movieId} backdrop={movieData.backdrop_path} />
             <h3 className="info-heading">GENRE</h3>
             <div className="genres">
                 {movieData.genres.map(genre => {

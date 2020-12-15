@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './MoviePresentation.scss'
 import axios from '../../axios-custom';
 
-const MoviePresentation = ({ id }) => {
+const MoviePresentation = ({ id, backdrop }) => {
     const [movieTrailerLink, setMovieTrailerLink] = useState('');
     const trailerIframe = <iframe title="trailer" width="560" height="315" src={`https://www.youtube.com/embed/${movieTrailerLink}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -13,9 +13,11 @@ const MoviePresentation = ({ id }) => {
     }, [id])
 
     return (
-        <div>
-            {trailerIframe}
-        </div>
+        <section className="movie-presentation">
+            <img className="movie-backdrop"
+                src={`https://image.tmdb.org/t/p/original/${backdrop}`}
+                alt="background" />
+        </section>
     );
 }
 
