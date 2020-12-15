@@ -26,12 +26,13 @@ const MovieSlider = ({ visible, movieList }) => {
             <div className="movies">
                 {firstFourMovies.map(movie => {
                     return (
-                        <Link to={{
-                            pathname: `/movie`,
-                            search: `?id=${movie.id}`
-                        }}>
+                        <Link
+                            key={movie.id}
+                            to={{
+                                pathname: `/movie`,
+                                search: `?id=${movie.id}`
+                            }}>
                             <Movie
-                                key={movie.id}
                                 posterPath={movie.poster_path}
                                 name={movie.original_title}
                                 rating={movie.vote_average}

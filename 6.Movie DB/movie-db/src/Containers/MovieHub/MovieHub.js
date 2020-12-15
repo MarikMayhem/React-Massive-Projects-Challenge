@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import axios from '../../axios-custom';
+import './MovieHub.scss';
 import SwitchTab from '../../Components/Switchtab/Switchtab';
 import SwitchMode from '../SwitchMode/SwitchMode';
 import MovieSlider from '../../Components/MovieSlider/MovieSlider';
 import PersonsSlider from '../../Components/PersonsSlider/PersonsSlider';
-import { connect } from 'react-redux';
-import axios from '../../axios-custom';
-import './MovieHub.scss';
+import About from '../../Components/About/About';
+
 
 const MovieHub = (props) => {
     const [topRatedMovies, setTopRatedMovies] = useState([])
@@ -36,6 +38,8 @@ const MovieHub = (props) => {
                 {/*Movie by top-rated-movies*/}
                 <h3 className="info-heading">Top rated Movies</h3>
                 <MovieSlider visible={true} movieList={topRatedMovies} />
+                {/*About me*/}
+                <About />
             </main>
         </React.Fragment>
     );
