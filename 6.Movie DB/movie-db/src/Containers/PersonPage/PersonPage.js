@@ -12,7 +12,6 @@ const PersonPage = (props) => {
     const [personCredits, setPersonCredits] = useState([]);
 
     useEffect(() => {
-        console.log('render')
         axios.get(`person/${personId}&language=en-US`)
             .then(res => {
                 setPersonDetails(res.data)
@@ -50,7 +49,6 @@ const PersonPage = (props) => {
             </div>
             <h2>Movies starring {personDetails.name}</h2>
             <MovieSlider movieList={personCredits} />
-
         </section>
     );
 
