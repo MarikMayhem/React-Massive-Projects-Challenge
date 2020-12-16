@@ -1,7 +1,7 @@
 import * as actionTypes from '../Actions/actionTypes'
 
 const switchState = {
-    search: false
+    search: undefined
 }
 
 const searchModeReducer = (state = switchState, action) => {
