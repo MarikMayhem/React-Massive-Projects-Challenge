@@ -4,29 +4,30 @@ import { storeMovieSearchResult } from '../../Store/Actions/movieActionCreator';
 import { connect } from 'react-redux'
 
 const Search = (props) => {
-    const [searchMovie, setSearchMovie] = useState('');
-    const [movieTitle, setMovieTitle] = useState(props.searchInputValue);
+    const [staticMovieValue, setStaticMovieValue] = useState(props.searchInputValue);
 
-    const setMovieHandler = (movieTitle) => {
-        setSearchMovie(movieTitle)
-        setMovieTitle(movieTitle)
+    const setMovieHandler = (movieTitleInput) => {
+        setStaticMovieValue(movieTitleInput)
     }
+    const searchForMovie = props.enterInput;
 
     useEffect(() => {
-        const delayDispatch = setTimeout(() => {
-            props.enterInput(searchMovie)
-        }, 1000)
-
-        return () => clearTimeout(delayDispatch)
-    }, [searchMovie, props])
+        const searchMovie = setTimeout(() => {
+            if (staticMovieValue) searchForMovie(staticMovieValue)
+        }, 2000);
+        return () => {
+            clearTimeout(searchMovie)
+        }
+    }, [staticMovieValue, searchForMovie])
 
     return (
         <section className="search-section">
             <h2>Search by entering movie name:</h2>
-            <input className="search" type="text" placeholder="movie-name" value={movieTitle} onChange={(e) => setMovieHandler(e.target.value)} />
+            <input className="search" type="text" placeholder="movie-name" value={staticMovieValue} onChange={(e) => setMovieHandler(e.target.value)} />
         </section>
     );
 }
+
 const mapStateToProps = state => {
     return {
         searchInputValue: state.searchInputValues.searchInputValue

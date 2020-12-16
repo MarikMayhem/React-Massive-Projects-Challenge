@@ -7,7 +7,7 @@ const Backdrop = (props) => (
 const backdropStyle = {
     width: '100%',
     height: '100%',
-    position: 'fixed',
+    position: 'absolute',
     zIndex: '100',
     left: '0',
     top: '0',
