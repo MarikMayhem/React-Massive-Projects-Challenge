@@ -3,7 +3,7 @@ import './MovieSlider.scss'
 import { FaArrowRight } from 'react-icons/fa'
 import Movie from './Movie/Movie'
 
-const MovieSlider = ({ visible, movieList }) => {
+const MovieSlider = ({ visible = true, movieList }) => {
 
     const [sliderMovies, setSliderMovies] = useState([])
     const [firstFourMovies, setFirstFourMovies] = useState([])

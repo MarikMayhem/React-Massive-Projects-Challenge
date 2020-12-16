@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './PersonPage.scss';
 import axios from '../../axios-custom';
 import queryString from 'query-string';
+import MovieSlider from '../../Components/MovieSlider/MovieSlider';
 
 const PersonPage = (props) => {
     const personId = queryString.parse(props.location.search).id;
     const [personDetails, setPersonDetails] = useState({});
     const [personBirthday, setPersonBirthday] = useState('');
     const [personImages, setPersonImages] = useState([]);
+    const [personCredits, setPersonCredits] = useState([]);
 
     useEffect(() => {
         console.log('render')
@@ -18,6 +20,10 @@ const PersonPage = (props) => {
             })
         axios.get(`person/${personId}/images`)
             .then(res => setPersonImages(res.data.profiles.splice(0, 4)))
+
+        axios.get(`person/${personId}/movie_credits?&language=en-US`)
+            .then(res => setPersonCredits(res.data.cast))
+
     }, [personId])
 
     return (
@@ -42,8 +48,12 @@ const PersonPage = (props) => {
                     return <img src={`https://image.tmdb.org/t/p/w500/${image.file_path}`} alt="images" />
                 })}
             </div>
+            <h2>Movies starring {personDetails.name}</h2>
+            <MovieSlider movieList={personCredits} />
+
         </section>
     );
+
 }
 
 export default PersonPage;
