@@ -26,12 +26,12 @@ const PersonPage = (props) => {
     }, [personId])
 
     return (
-        <section className="person">
+        <main className="person">
             <h1>{personDetails.name}</h1>
             <div className="person-biography-section">
                 <img src={`https://image.tmdb.org/t/p/original/${personDetails.profile_path}`}
                     alt="portrait"
-                    className="person-portrait" />
+                    className="portrait" />
                 <p className="biography">
                     {personDetails.biography}
                 </p>
@@ -49,7 +49,7 @@ const PersonPage = (props) => {
             </div>
             <h2>Movies starring {personDetails.name}</h2>
             <MovieSlider movieList={personCredits} />
-        </section>
+        </main>
     );
 
 }
