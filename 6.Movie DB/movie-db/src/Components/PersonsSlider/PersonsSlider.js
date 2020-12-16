@@ -26,6 +26,7 @@ const PersonsSlider = ({ personsList = [], infoType }) => {
                 {firstFourPersons.map(person => {
                     return <Person
                         key={person.id}
+                        id={person.id}
                         personPortrait={person.profile_path}
                         name={person.name}
                         {...(infoType === 'role-name' ? { roleName: person.character } : { knownFor: person.known_for_department })}
