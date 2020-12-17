@@ -1,0 +1,46 @@
+@import "../../Assets/Styles/colors.scss";
+
+.person {
+    h1 {
+        margin: 0;
+        padding: 20px;
+    }
+    &-biography-section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        .portrait {
+            max-width: 1170 * 0.4px;
+            border-radius: 50%;
+            margin: auto;
+        }
+        .biography {
+            text-align: left;
+            max-width: 1170 * 0.5px;
+            margin: 50px auto;
+        }
+    }
+
+    &-info-section {
+        display: flex;
+        justify-content: space-around;
+        margin: 50px 0;
+        margin: 50px 0;
+        flex-wrap: wrap;
+    }
+
+    &-images-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        img {
+            margin: auto;
+            max-width: 1170 * 0.4px;
+            width: 90%;
+            height: auto;
+            border: 2px solid $white;
+            margin-bottom: 30px;
+        }
+    }
+}
