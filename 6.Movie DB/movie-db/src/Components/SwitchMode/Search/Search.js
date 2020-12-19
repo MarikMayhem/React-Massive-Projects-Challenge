@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Search.scss'
-import { storeMovieSearchResult } from '../../Store/Actions/movieActionCreator';
+import { storeMovieSearchResult } from '../../../Store/Actions/movieActionCreator';
 import { connect } from 'react-redux'
 
 const Search = (props) => {
