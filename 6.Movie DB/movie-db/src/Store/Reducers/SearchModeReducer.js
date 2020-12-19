@@ -5,7 +5,7 @@ const switchState = {
 }
 
 const searchModeReducer = (state = switchState, action) => {
-    if (action.type === actionTypes.CHANGED) {
+    if (action.type === actionTypes.CHANGE_SEARCH_CATEGORY) {
         return {
             search: !state.search
         }

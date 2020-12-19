@@ -1,23 +1,24 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import './MoviePresentation.scss'
 import { FaPlayCircle } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
-import axios from '../../axios-custom';
 import Modal from '../UI/Modal/Modal';
 
-const MoviePresentation = ({ id, backdrop, title }) => {
-    const [movieTrailerLink, setMovieTrailerLink] = useState('');
+const MoviePresentation = ({ backdrop, title, youtubeLink }) => {
     const [displayModal, setDisplayModal] = useState(false);
-    const [trailerIframe, setTrailerIframe] = useState('');
     const iframeRef = useRef(null);
+    const trailerIframe = <iframe
+        ref={iframeRef}
+        title="trailer"
+        id="trailer"
+        src={`https://www.youtube-nocookie.com/embed/${youtubeLink}?playlist=${youtubeLink}?rel=0&controls=0&hd=1&enablejsapi=1`}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen>
+    </iframe>;
     const MODAL_OPEN_CLASS = "open-modal";
 
-    useEffect(() => {
-        axios.get(`movie/${id}/videos?&language=en-US`)
-            .then(res => setMovieTrailerLink(res.data.results[0]?.key))
-        setTrailerIframe(<iframe ref={iframeRef} title="trailer" id="trailer" src={`https://www.youtube-nocookie.com/embed/${movieTrailerLink}?playlist=${movieTrailerLink}?rel=0&controls=0&hd=1&enablejsapi=1`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>)
-    }, [id, movieTrailerLink])
 
     const openModalHandler = () => {
         setDisplayModal(true);

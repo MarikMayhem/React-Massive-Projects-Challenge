@@ -4,7 +4,6 @@ import './Movie.scss'
 
 const Movie = ({ posterPath, name, rating, id }) => {
     return (
-
         <div className="movie">
             <Link
                 to={{
@@ -15,7 +14,7 @@ const Movie = ({ posterPath, name, rating, id }) => {
             </Link>
             <p className="title">{name}</p>
             <p>Rated: {rating}</p>
-        </div >
+        </div>
     );
 }
 
