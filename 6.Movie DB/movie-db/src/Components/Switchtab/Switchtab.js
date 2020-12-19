@@ -1,36 +1,15 @@
-import React, { useState } from 'react';
+
+import React from 'react';
 import './Switchtab.scss'
-import * as actionTypes from '../../Store/Actions/actionTypes';
-import { connect } from 'react-redux';
 
-const SwitchTab = (props) => {
+const SwitchTab = ({ search, changeSearchCategory }) => {
 
-    const [defaultTab, setDefaultTab] = useState('search')
-    const changeTabHandler = (e) => {
-        e.preventDefault()
-        if (defaultTab !== e.target.name) {
-            props.onChangeTab()
-            setDefaultTab(e.target.name)
-        }
-    }
     return (
         <section className="switch-tab">
-            <button name="search" className={`switch-button ${!props.search && 'active'}`} onClick={changeTabHandler}>Search</button>
-            | <button name="category" className={`switch-button ${props.search && 'active'}`} onClick={changeTabHandler}>Category</button>
+            <button name="search" className={`switch-button ${!search && 'active'}`} onClick={changeSearchCategory}>Search</button>
+            | <button name="category" className={`switch-button ${search && 'active'}`} onClick={changeSearchCategory}>Category</button>
         </section>
     );
 }
 
-const mapStateToProps = state => {
-    return {
-        search: state.search.search
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onChangeTab: () => dispatch({ type: actionTypes.CHANGED })
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(React.memo(SwitchTab));
+export default (React.memo(SwitchTab));
